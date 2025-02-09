@@ -12,36 +12,14 @@
             background-color: #000;
             color: #0f0; /* سبز نئونی */
         }
-        h1 {
-            font-size: 2.5rem;
+        h1, h2 {
             text-transform: uppercase;
             color: #0f0;
             text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 2rem;
-            text-transform: uppercase;
-            color: #0f0;
-            text-shadow: 0 0 8px #0f0, 0 0 15px #0f0;
-            margin-bottom: 15px;
         }
         ul {
             list-style: none;
             padding: 0;
-        }
-        li {
-            margin: 15px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #0f0;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
         }
         .lang-buttons {
             margin-bottom: 20px;
@@ -61,7 +39,7 @@
             background: #fff;
             color: #000;
         }
-        .social-links a {
+        .social-links a, .project-buttons a {
             display: block;
             padding: 12px;
             margin: 10px auto;
@@ -72,11 +50,19 @@
             text-align: center;
             font-weight: bold;
             transition: 0.3s;
+            text-decoration: none;
         }
-        .social-links a:hover {
+        .social-links a:hover, .project-buttons a:hover {
             background: #fff;
             color: #000;
             text-shadow: 0 0 10px #0f0;
+        }
+        .about {
+            margin-top: 40px;
+            padding: 20px;
+            background: #111;
+            border-radius: 8px;
+            text-shadow: 0 0 5px #0f0;
         }
     </style>
 </head>
@@ -104,11 +90,19 @@
     <h2 id="title">My Projects</h2>
     <p id="subtitle">Check out my latest projects:</p>
 
-    <ul>
-        <li><a id="link1" href="https://cafebazaar.ir/app/com.example.fit_application" target="_blank">Workout at Home - Cafe Bazaar</a></li>
-        <li><a id="link2" href="https://myket.ir/app/com.example.fit_application" target="_blank">Workout at Home - Myket</a></li>
-        <li><a id="link3" href="https://sibapp.com/applications/workoutinhome?from=search" target="_blank">Workout at Home - SibApp</a></li>
-    </ul>
+    <div class="project-buttons">
+        <a id="link1" href="https://cafebazaar.ir/app/com.example.fit_application" target="_blank">Workout at Home - Cafe Bazaar</a>
+        <a id="link2" href="https://myket.ir/app/com.example.fit_application" target="_blank">Workout at Home - Myket</a>
+        <a id="link3" href="https://sibapp.com/applications/workoutinhome?from=search" target="_blank">Workout at Home - SibApp</a>
+    </div>
+
+    <!-- بخش درباره من -->
+    <div class="about">
+        <h2 id="about-title">About Me</h2>
+        <p id="about-text">
+            Creator | Multiskilled Innovator | Flutter, Dart & Python Developer | Unity | UI/UX Designer (Adobe XD, Photoshop, Illustrator) | 3D Artist (Blender, Substance 3D) | Motion Graphics (After Effects) | Guitarist  
+        </p>
+    </div>
 
     <script>
         // دیتای زبان‌ها
@@ -119,7 +113,9 @@
                 subtitle: "Check out my latest projects:",
                 link1: "Workout at Home - Cafe Bazaar",
                 link2: "Workout at Home - Myket",
-                link3: "Workout at Home - SibApp"
+                link3: "Workout at Home - SibApp",
+                aboutTitle: "About Me",
+                aboutText: "Creator | Multiskilled Innovator | Flutter, Dart & Python Developer | Unity | UI/UX Designer (Adobe XD, Photoshop, Illustrator) | 3D Artist (Blender, Substance 3D) | Motion Graphics (After Effects) | Guitarist"
             },
             fa: {
                 socialTitle: "شبکه‌های اجتماعی من",
@@ -127,7 +123,9 @@
                 subtitle: "جدیدترین پروژه‌های من را ببینید:",
                 link1: "ورزش در خانه - کافه بازار",
                 link2: "ورزش در خانه - مایکت",
-                link3: "ورزش در خانه - سیب اپ"
+                link3: "ورزش در خانه - سیب اپ",
+                aboutTitle: "درباره من",
+                aboutText: "خالق | نوآور چندمهارته | توسعه‌دهنده Flutter, Dart & Python | بازی‌ساز با Unity | طراح UI/UX (Adobe XD, Photoshop, Illustrator) | مدل‌ساز سه‌بعدی (Blender, Substance 3D) | موشن گرافیست (After Effects) | گیتاریست"
             }
         };
 
@@ -139,6 +137,8 @@
             document.getElementById("link1").textContent = translations[lang].link1;
             document.getElementById("link2").textContent = translations[lang].link2;
             document.getElementById("link3").textContent = translations[lang].link3;
+            document.getElementById("about-title").textContent = translations[lang].aboutTitle;
+            document.getElementById("about-text").textContent = translations[lang].aboutText;
             localStorage.setItem("language", lang); // ذخیره زبان انتخابی
         }
 
