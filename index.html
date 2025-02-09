@@ -3,18 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
+    <title>Mohammad Hasan Taheri - Portfolio</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        h1 { color: #0073e6; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 10px 0; }
-        a { text-decoration: none; color: #0073e6; font-weight: bold; }
-        .lang-buttons { margin-bottom: 20px; }
-        button { padding: 10px; margin: 5px; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #0f0; /* سبز نئونی */
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #0f0;
+            text-shadow: 0 0 8px #0f0, 0 0 15px #0f0;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #0f0;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+        }
+        .lang-buttons {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            background: #0f0;
+            color: #000;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #fff;
+            color: #000;
+        }
+        .social-links a {
+            display: block;
+            padding: 12px;
+            margin: 10px auto;
+            background: #0f0;
+            color: #000;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            background: #fff;
+            color: #000;
+            text-shadow: 0 0 10px #0f0;
+        }
     </style>
 </head>
 <body>
+
+    <!-- اسم کامل -->
+    <h1>Mohammad Hasan Taheri</h1>
 
     <!-- دکمه‌های تغییر زبان -->
     <div class="lang-buttons">
@@ -22,7 +91,17 @@
         <button onclick="setLanguage('fa')">فارسی</button>
     </div>
 
-    <h1 id="title">My Projects</h1>
+    <!-- لینک شبکه‌های اجتماعی -->
+    <h2 id="social-title">Follow Me</h2>
+    <div class="social-links">
+        <a href="https://t.me/MHTCreations" target="_blank">Telegram Channel</a>
+        <a href="https://www.instagram.com/mohammadhasantaheri" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/mohammad-hasan-taheri-95b387265" target="_blank">LinkedIn</a>
+        <a href="https://github.com/MHTpro" target="_blank">GitHub</a>
+    </div>
+
+    <!-- پروژه‌ها -->
+    <h2 id="title">My Projects</h2>
     <p id="subtitle">Check out my latest projects:</p>
 
     <ul>
@@ -35,6 +114,7 @@
         // دیتای زبان‌ها
         const translations = {
             en: {
+                socialTitle: "Follow Me",
                 title: "My Projects",
                 subtitle: "Check out my latest projects:",
                 link1: "Workout at Home - Cafe Bazaar",
@@ -42,6 +122,7 @@
                 link3: "Workout at Home - SibApp"
             },
             fa: {
+                socialTitle: "شبکه‌های اجتماعی من",
                 title: "پروژه‌های من",
                 subtitle: "جدیدترین پروژه‌های من را ببینید:",
                 link1: "ورزش در خانه - کافه بازار",
@@ -52,6 +133,7 @@
 
         // تابع تغییر زبان
         function setLanguage(lang) {
+            document.getElementById("social-title").textContent = translations[lang].socialTitle;
             document.getElementById("title").textContent = translations[lang].title;
             document.getElementById("subtitle").textContent = translations[lang].subtitle;
             document.getElementById("link1").textContent = translations[lang].link1;
