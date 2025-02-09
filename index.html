@@ -3,22 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Hasan Taheri - Projects</title>
+    <title>My Projects</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         h1 { color: #0073e6; }
         ul { list-style: none; padding: 0; }
-        li { margin: 10px 10px; }
-        a { text-decoration: none; color: #0073e6; font-weight: bold; display: block; padding: 10px; border: 2px solid #0073e6; border-radius: 5px; width: 250px; margin: 10px auto; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #0073e6; font-weight: bold; }
+        .lang-buttons { margin-bottom: 20px; }
+        button { padding: 10px; margin: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>My Projects</h1>
-    <p>Check out my latest projects:</p>
+
+    <!-- دکمه‌های تغییر زبان -->
+    <div class="lang-buttons">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('fa')">فارسی</button>
+    </div>
+
+    <h1 id="title">My Projects</h1>
+    <p id="subtitle">Check out my latest projects:</p>
+
     <ul>
-        <li><a href="https://cafebazaar.ir/app/com.example.fit_application" target="_blank">ورزش در خانه - کافه بازار</a></li>
-        <li><a href="https://myket.ir/app/com.example.fit_application" target="_blank">ورزش در خانه - مایکت</a></li>
-        <li><a href="https://sibapp.com/applications/workoutinhome?from=search" target="_blank">ورزش در خانه - سیب اپ</a></li>
+        <li><a id="link1" href="https://cafebazaar.ir/app/com.example.fit_application" target="_blank">Workout at Home - Cafe Bazaar</a></li>
+        <li><a id="link2" href="https://myket.ir/app/com.example.fit_application" target="_blank">Workout at Home - Myket</a></li>
+        <li><a id="link3" href="https://sibapp.com/applications/workoutinhome?from=search" target="_blank">Workout at Home - SibApp</a></li>
     </ul>
+
+    <script>
+        // دیتای زبان‌ها
+        const translations = {
+            en: {
+                title: "My Projects",
+                subtitle: "Check out my latest projects:",
+                link1: "Workout at Home - Cafe Bazaar",
+                link2: "Workout at Home - Myket",
+                link3: "Workout at Home - SibApp"
+            },
+            fa: {
+                title: "پروژه‌های من",
+                subtitle: "جدیدترین پروژه‌های من را ببینید:",
+                link1: "ورزش در خانه - کافه بازار",
+                link2: "ورزش در خانه - مایکت",
+                link3: "ورزش در خانه - سیب اپ"
+            }
+        };
+
+        // تابع تغییر زبان
+        function setLanguage(lang) {
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("subtitle").textContent = translations[lang].subtitle;
+            document.getElementById("link1").textContent = translations[lang].link1;
+            document.getElementById("link2").textContent = translations[lang].link2;
+            document.getElementById("link3").textContent = translations[lang].link3;
+            localStorage.setItem("language", lang); // ذخیره زبان انتخابی
+        }
+
+        // وقتی صفحه لود شد، زبان ذخیره‌شده رو لود کن
+        window.onload = function () {
+            const savedLang = localStorage.getItem("language") || "en";
+            setLanguage(savedLang);
+        };
+    </script>
+
 </body>
 </html>
